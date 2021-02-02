@@ -8,6 +8,8 @@ namespace Smart\CustomSalesRule\Plugin;
 use Magento\SalesRule\Model\Rule;
 use Smart\CustomSalesRule\Model\Rule\Action\Discount\ByXGetYAmount;
 use Smart\CustomSalesRule\Model\Rule\Action\Discount\ByXGetYPercent;
+use Smart\CustomSalesRule\Model\Rule\Action\Discount\ByXGetYPercentnew;
+use Smart\CustomSalesRule\Model\Rule\Action\Discount\GroupNByXGetYPercent;
 
 /**
  * Class ValueProvider
@@ -28,12 +30,16 @@ class ValueProvider
             'label' => __('Difference Product'),
             'value' => [
                 [
+                    'label' => ByXGetYAmount::ACTION_LABEL,
+                    'value' => ByXGetYAmount::ACTION_NAME,
+                ],
+                [
                     'label' => ByXGetYPercent::ACTION_LABEL,
                     'value' => ByXGetYPercent::ACTION_NAME,
                 ],
                 [
-                    'label' => ByXGetYAmount::ACTION_LABEL,
-                    'value' => ByXGetYAmount::ACTION_NAME,
+                    'label' => GroupNByXGetYPercent::ACTION_LABEL,
+                    'value' => GroupNByXGetYPercent::ACTION_NAME,
                 ],
             ],
         ];

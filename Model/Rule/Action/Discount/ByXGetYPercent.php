@@ -6,7 +6,6 @@ namespace Smart\CustomSalesRule\Model\Rule\Action\Discount;
 
 use Magento\SalesRule\Model\Rule\Action\Discount\AbstractDiscount;
 use Magento\SalesRule\Model\Validator;
-use Smart\CustomSalesRule\Helper\QuoteCache;
 
 /**
  * Class ByXGetYPercent
@@ -23,21 +22,6 @@ class ByXGetYPercent extends AbstractDiscount
      * @var Validator
      */
     protected $validator;
-
-    /**
-     * @var QuoteCache
-     */
-    private $quoteCache;
-
-    public function __construct(
-        \Magento\SalesRule\Model\Validator $validator,
-        \Magento\SalesRule\Model\Rule\Action\Discount\DataFactory $discountDataFactory,
-        \Magento\Framework\Pricing\PriceCurrencyInterface $priceCurrency,
-        QuoteCache $quoteCache
-    ) {
-        parent::__construct($validator, $discountDataFactory, $priceCurrency);
-        $this->quoteCache = $quoteCache;
-    }
 
     /**
      * @param \Magento\SalesRule\Model\Rule $rule
@@ -58,17 +42,12 @@ class ByXGetYPercent extends AbstractDiscount
         $maxQtyToApplyRule = $rule->getDiscountQty();
         $discountAmountRule = $rule->getDiscountAmount();
 
-        $cartItemsQty = $this->quoteCache->getCartItemsQty();
-        $cartProcessItems = $this->quoteCache->getProcessItems();
-
-        if (!$discountAmountRule || !$discountStepRule || !$cartItemsQty) {
+        if (!$discountAmountRule || !$discountStepRule) {
             return $discountData;
         }
 
         $priceTotalItem = $qty * $itemPrice;
         $discountAmount = $priceTotalItem * $discountAmountRule / 100;
-        $restCartItemsQty = $cartProcessItems - $qty;
-        $this->quoteCache->setProcessItems((int) $restCartItemsQty);
 
         $discountData->setAmount($discountAmount);
         $discountData->setBaseAmount($maxQtyToApplyRule * $baseItemPrice);

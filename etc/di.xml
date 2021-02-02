@@ -6,11 +6,8 @@
             <argument name="discountRules" xsi:type="array">
                 <item name="by_x_get_y_amount" xsi:type="string">Smart\CustomSalesRule\Model\Rule\Action\Discount\ByXGetYAmount</item>
                 <item name="by_x_get_y_percent" xsi:type="string">Smart\CustomSalesRule\Model\Rule\Action\Discount\ByXGetYPercent</item>
+                <item name="group_n_by_x_get_y_percent" xsi:type="string">Smart\CustomSalesRule\Model\Rule\Action\Discount\GroupNByXGetYPercent</item>
             </argument>
         </arguments>
-    </type>
-    <type name="Magento\Quote\Model\Quote">
-        <plugin name="custom_salesrule_quote"
-                type="Smart\CustomSalesRule\Plugin\Magento\Model\Quote"/>
     </type>
 </config>

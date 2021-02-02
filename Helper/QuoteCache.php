@@ -11,47 +11,22 @@ namespace Smart\CustomSalesRule\Helper;
  */
 class QuoteCache
 {
-    /**
-     * @var int $cartItemsQty
-     */
-    private $cartItemsQty;
+    private $itemsValidated;
 
     /**
-     * @var int $processItems
+     * @return mixed
      */
-    private $processItems;
-
-    /**
-     * @return int
-     */
-    public function getCartItemsQty(): int
+    public function getItemsValidated()
     {
-        return (int) $this->cartItemsQty;
+        return $this->itemsValidated;
     }
 
     /**
-     * @param int $cartItemsQty
+     * @param mixed $itemsValidated
      */
-    public function setCartItemsQty(int $cartItemsQty): void
+    public function setItemsValidated($itemsValidated): void
     {
-        $this->cartItemsQty = $cartItemsQty;
-        $this->processItems = $cartItemsQty;
-    }
-
-    /**
-     * @return int
-     */
-    public function getProcessItems(): int
-    {
-        return (int) $this->processItems;
-    }
-
-    /**
-     * @param int $processItems
-     */
-    public function setProcessItems(int $processItems): void
-    {
-        $this->processItems = $processItems;
+        $this->itemsValidated = $itemsValidated;
     }
 
 }
