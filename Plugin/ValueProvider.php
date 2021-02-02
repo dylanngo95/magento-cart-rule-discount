@@ -6,7 +6,8 @@ namespace Smart\CustomSalesRule\Plugin;
 
 
 use Magento\SalesRule\Model\Rule;
-use Smart\CustomSalesRule\Model\Rule\Action\Discount\BXGY;
+use Smart\CustomSalesRule\Model\Rule\Action\Discount\ByXGetYAmount;
+use Smart\CustomSalesRule\Model\Rule\Action\Discount\ByXGetYPercent;
 
 /**
  * Class ValueProvider
@@ -27,8 +28,12 @@ class ValueProvider
             'label' => __('Difference Product'),
             'value' => [
                 [
-                    'label' => BXGY::ACTION_LABEL,
-                    'value' => BXGY::ACTION_NAME,
+                    'label' => ByXGetYPercent::ACTION_LABEL,
+                    'value' => ByXGetYPercent::ACTION_NAME,
+                ],
+                [
+                    'label' => ByXGetYAmount::ACTION_LABEL,
+                    'value' => ByXGetYAmount::ACTION_NAME,
                 ],
             ],
         ];

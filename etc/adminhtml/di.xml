@@ -2,7 +2,7 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
     <type name="Magento\SalesRule\Model\Rule\Metadata\ValueProvider">
-        <plugin name="salesrule_custom"
+        <plugin name="custom_salesrule_value_provider"
                 type="Smart\CustomSalesRule\Plugin\ValueProvider"
                 sortOrder="1"/>
     </type>

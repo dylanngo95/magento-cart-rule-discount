@@ -8,13 +8,13 @@ use Magento\SalesRule\Model\Rule\Action\Discount\AbstractDiscount;
 use Magento\SalesRule\Model\Validator;
 
 /**
- * Class BXGY
+ * Class ByXGetYAmount
  * @package Smart\CustomSalesRule\Model\Rule\Action\Discount
  */
-class BXGY extends AbstractDiscount
+class ByXGetYAmount extends AbstractDiscount
 {
-    const ACTION_NAME = 'by_x_get_y_percent';
-    const ACTION_LABEL = 'By X items discount Y %';
+    const ACTION_NAME = 'by_x_get_y_amount';
+    const ACTION_LABEL = 'By X items discount Y amount';
     const RULE_VERSION = '1.0.0';
     const DEFAULT_SORT_ORDER = 'asc';
 
